@@ -38,7 +38,7 @@ public class Book {
         return title;
     }
 
-    public void setTitle(String title) {
+    void setTitle(String title) {
         this.title = title;
     }
 
@@ -46,7 +46,7 @@ public class Book {
         return author;
     }
 
-    public void setAuthor(String author) {
+    void setAuthor(String author) {
         this.author = author;
     }
     
@@ -54,7 +54,7 @@ public class Book {
         return status;
     }
     
-    public void setStatus(BookStatus status){
+    void setStatus(BookStatus status){
         this.status = status;
     }
 
@@ -66,10 +66,7 @@ public class Book {
         return returnDate;
     }
 
-    public void setReturnDate(Calendar returnDate) {
+    void setReturnDate(Calendar returnDate) {
         this.returnDate = returnDate;
     }
-    
-    
-    
 }

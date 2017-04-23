@@ -17,7 +17,6 @@ public class LendReturnLoseBookTest {
     private static UserDatabase userdatabase;
     private static Librarian librarian;
     private static User user1;
-    private static User user2;
     private static Book book1;
     private static Book book2;
     private static Book book3;
@@ -26,21 +25,13 @@ public class LendReturnLoseBookTest {
     public static void setUp(){
         database = mock(BookDatabase.class);
         userdatabase = mock(UserDatabase.class);
-        
-        book1 = new Book("A lenda","Stieven Dival");
-        book2 = new Book("Ata","Bolsonitro");
-        book3 = new Book("Theory of swamps","Sereni");
-        
-        when(database.deleteBook(book1.getListId())).thenReturn(true);
-        when(database.deleteBook(book2.getListId())).thenReturn(true);
-        when(database.deleteBook(book3.getListId())).thenReturn(true);
     }
     
     @Before
     public void methodSetUp(){
-        book1.setStatus(BookStatus.AVAILABLE);
-        book2.setStatus(BookStatus.AVAILABLE);
-        book3.setStatus(BookStatus.AVAILABLE);
+        book1 = new Book("A lenda","Stieven Dival");
+        book2 = new Book("Ata","Bolsonitro");
+        book3 = new Book("Theory of swamps","Sereni");
         
         user1 = new User("Karl");
         

@@ -1,6 +1,8 @@
 package com.mycompany.librarysystem;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class User {
 
@@ -66,5 +68,9 @@ public class User {
             return book;
         }
         return null;
+    }
+
+    public List<Book> getBorrowedbooks() {
+        return Collections.unmodifiableList(borrowedbooks);
     }
 }

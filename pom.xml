@@ -29,5 +29,5 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
-    <name>LibrarySystem</name>
+    <name>LUCASSOARES_QUESTAO8</name>
 </project>

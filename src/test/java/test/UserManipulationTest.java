@@ -1,5 +1,6 @@
 package test;
 
+import com.mycompany.librarysystem.BookDatabase;
 import org.junit.Test;
 import org.junit.BeforeClass;
 import static org.junit.Assert.*;
@@ -17,6 +18,7 @@ public class UserManipulationTest {
     private static User user2;
     private static Librarian librarian;
     private static UserDatabase database;
+    private static BookDatabase bookdatabase;
     
     @BeforeClass
     public static void setUp(){
@@ -24,7 +26,7 @@ public class UserManipulationTest {
         user2 = new User("James");
         
         database = mock(UserDatabase.class);
-        librarian = new Librarian(database);
+        librarian = new Librarian(database,bookdatabase);
         
         when(database.addUser(user1)).thenReturn(true);
         when(database.addUser(user2)).thenReturn(true);
@@ -48,7 +50,6 @@ public class UserManipulationTest {
     
     @Test
     public void unblockUserTest(){
-        assertEquals(0,user1.getBlockTime());
         assertEquals(UserStatus.UNBLOCKED,user1.getStatus());
     }
     

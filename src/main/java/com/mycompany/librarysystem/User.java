@@ -1,8 +1,10 @@
 package com.mycompany.librarysystem;
 
+import java.util.ArrayList;
+
 public class User {
 
-    
+    private final ArrayList<Book> borrowedbooks;
     private static int maxid = 0;
     private String name;
     private final int id;
@@ -15,12 +17,13 @@ public class User {
         maxid++;
         status = UserStatus.UNBLOCKED;
         blockTime = 0;
+        borrowedbooks = new ArrayList<>();
     }
     
     public String getName() {
         return name;
     }
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
     public int getId() {
@@ -31,21 +34,37 @@ public class User {
         return status;
     }
     
-    public void timeBlockUser(int time){
+    void timeBlockUser(int time){
         blockTime = time;
         status = UserStatus.TIMEBLOCKED;
     }
     
-    public void financialBlockUser(){
+    void financialBlockUser(){
         status = UserStatus.FINANCIALBLOCKED;
     }
     
-    public void unblockUser(){
+    void unblockUser(){
         blockTime = 0;
         status = UserStatus.UNBLOCKED;
     }
     
     public int getBlockTime(){
         return blockTime;
+    }
+    
+    boolean hasBorrowedBook(Book book){
+        return borrowedbooks.contains(book);
+    }
+    
+    void borrowBook(Book book){
+        borrowedbooks.add(book);
+    }
+    
+    Book returnBook(Book book){
+        if (hasBorrowedBook(book)){
+            borrowedbooks.remove(book);
+            return book;
+        }
+        return null;
     }
 }
